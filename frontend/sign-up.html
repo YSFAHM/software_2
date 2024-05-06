@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign in</title>
+    <!-- CSS files -->
+    <link href="./dist/css/tabler.min.css?1684106062" rel="stylesheet">
+    <link href="./dist/css/tabler-flags.min.css?1684106062" rel="stylesheet">
+    <link href="./dist/css/tabler-payments.min.css?1684106062" rel="stylesheet">
+    <link href="./dist/css/tabler-vendors.min.css?1684106062" rel="stylesheet">
+    <link href="./dist/css/demo.min.css?1684106062" rel="stylesheet">
+    <script src="signup_handler.js"></script>
+    <style>
+      @import url('https://rsms.me/inter/inter.css');
+      :root {
+      	--tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+      }
+      body {
+      	font-feature-settings: "cv03", "cv04", "cv11";
+      }
+    </style>
+  </head>
+  <body class=" d-flex flex-column">
+    <script src="./dist/js/demo-theme.min.js?1684106062"></script>
+    <div class="page page-center">
+      <div id="alerth"></div>
+      <div class="container container-tight py-4">
+        <div class="text-center mb-4">
+          <a class="navbar-brand navbar-brand-autodark"><img src="./static/logo.svg" height="60" alt=""></a>
+        </div>
+        <div class="card card-md">
+          <div class="card-body">
+            <h2 class="h2 text-center mb-4">Register your account</h2>
+            <form  id="signUpForm"action="javascript:void(0)" autocomplete="off">
+              <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" id="username" class="form-control" placeholder="gotech12" autocomplete="off" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Company name</label>
+                <input type="text" id="companyName" class="form-control" placeholder="Go tech" autocomplete="off" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="text" id="email" class="form-control" placeholder="123@example.com" autocomplete="off" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Phone number</label>
+                <input type="text" id="phoneNumber" class="form-control" placeholder="01023456789" autocomplete="off" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Service</label>
+                <input type="text" id="service" class="form-control" placeholder="software house" autocomplete="off" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Description</label>
+                <input type="text" id="description" class="form-control" placeholder="company for development" autocomplete="off" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Address</label>
+                <input type="text" id="address" class="form-control" placeholder="cairo,Egypt" autocomplete="off" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Number of employees</label>
+                <input type="text" id="numberOfEmployee" class="form-control" placeholder="50" autocomplete="off" required>
+              </div>
+
+              <div class="mb-2">
+                <label class="form-label">
+                  Password
+                  <span class="form-label-description">
+                    
+                  </span>
+                </label>
+                
+                <div class="input-group input-group-flat">
+                  <input type="password" id="password" class="form-control" placeholder="Your password" autocomplete="off" required>
+                  
+                </div>
+              </div>
+              <div class="mb-2">
+                
+              </div>
+              <div class="form-footer">
+                <button type="submit" class="btn btn-primary w-100" onclick="javascript:signUp()">Register</button>
+              </div>
+            </form>
+          </div>
+          
+          
+        </div>
+        <div class="text-center text-muted mt-3">
+          Do you have account? <a href="./sign-in.html" tabindex="-1">Sign In</a>
+        </div>
+      </div>
+    </div>
+    <!-- Libs JS -->
+    <!-- Tabler Core -->
+    <script src="./dist/js/tabler.min.js?1684106062" defer=""></script>
+    <script src="./dist/js/demo.min.js?1684106062" defer=""></script>
+  
+</body></html>

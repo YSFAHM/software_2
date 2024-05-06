@@ -1,0 +1,39 @@
+version: "3"
+services:
+  jcompany:
+    container_name: jcompany-container
+    restart: always
+    build: ./jcompany
+    ports:
+      - 8080:8080
+    environment:
+      MYSQL_HOST: mysqldb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 1234
+      MYSQL_PORT: 3306
+    networks:
+      - spring-network
+  mysqldb:
+    container_name: mysqldb-container
+    image: mysql:8.0
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_DATABASE: jcompany
+      MYSQL_ROOT_PASSWORD: 1234
+    networks:
+      - spring-network
+  frontend:
+    build: ./frontend
+    container_name: frontend_container
+    stdin_open: true
+    ports:
+      - "80:80"
+    networks:
+      - spring-network
+volumes:
+  mysql-data:
+networks:
+  spring-network:

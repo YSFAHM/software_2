@@ -1,0 +1,145 @@
+<!doctype html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta19
+* @link https://tabler.io
+* Copyright 2018-2023 The Tabler Authors
+* Copyright 2018-2023 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Search for Jobs - Tabler - Premium and Open Source dashboard template with responsive and high quality UI.</title>
+    <!-- CSS files -->
+    <link href="./dist/css/tabler.min.css?1684106062" rel="stylesheet"/>
+    <link href="./dist/css/tabler-flags.min.css?1684106062" rel="stylesheet"/>
+    <link href="./dist/css/tabler-payments.min.css?1684106062" rel="stylesheet"/>
+    <link href="./dist/css/tabler-vendors.min.css?1684106062" rel="stylesheet"/>
+    <link href="./dist/css/demo.min.css?1684106062" rel="stylesheet"/>
+    <style>
+      @import url('https://rsms.me/inter/inter.css');
+      :root {
+      	--tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+      }
+      body {
+      	font-feature-settings: "cv03", "cv04", "cv11";
+      }
+      .card {
+        /* Your existing styles */
+        transition: background-color 0.3s;
+      }
+
+      .card.hovered {
+        /* Define hover styles */
+        background-color: #f0f0f0; /* Change background color on hover */
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body >
+    <script src="./dist/js/demo-theme.min.js?1684106062"></script>
+    <div class="page">
+      <!-- Navbar -->
+
+      <div id="headerPlaceholder"></div>
+
+      <div id="alerth"></div>
+      <div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none">
+          <div class="container-xl">
+            <div class="row g-2 align-items-center">
+              <div class="col">
+                <h2 class="page-title">
+                  Search for Companies
+                </h2>
+              </div>
+              <!-- Page title actions -->
+              <div class="col-auto ms-auto d-print-none">
+                <!-- <a href="#" class="btn btn-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+                  Post a job
+                </a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Page body -->
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row g-4">
+              <div class="col-md-9">
+                <div class="row row-cards">
+                  <div class="space-y">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Libs JS -->
+    <!-- Tabler Core -->
+    <script src="./dist/js/tabler.min.js?1684106062" defer></script>
+    <script src="./dist/js/demo.min.js?1684106062" defer></script>
+    <script>
+      // Function to include the header content
+      function includeHeader() {
+          // Create a new XMLHttpRequest object
+          var xhr = new XMLHttpRequest();
+
+          // Define the path to the header file
+          var headerPath = './header.html';
+
+          // Open a GET request to fetch the header content
+          xhr.open('GET', headerPath, true);
+
+          // Define the onload callback function
+          xhr.onload = function() {
+              if (xhr.status >= 200 && xhr.status < 300) {
+                  // Success: Inject the header content into the placeholder
+                  document.getElementById('headerPlaceholder').innerHTML = xhr.responseText;
+              } else {
+                  // Error: Log the error message
+                  console.error('Failed to load header:', xhr.statusText);
+              }
+          };
+
+          // Send the request
+          xhr.send();
+      }
+
+      // Call the function to include the header content
+      includeHeader();
+    </script>
+    <script type="module">
+      import {addCard} from './Integration/company_listing.js';
+      import {getAllCompanies} from './Requests/company.js';
+      import {makeAlert} from './Integration/errorAlert.js';
+      
+      getAllCompanies()
+        .then(data => {
+            //console.log(data);
+            for (let i = 0; i < data.length; i++) {
+              addCard(data[i])
+            }
+        })
+        .catch(error => {
+            //console.log(error);
+            makeAlert(error.message);
+        });
+    
+    </script>
+    <script>
+      function login() {
+        window.location.href = 'sign-in.html';
+      }
+      </script>
+  </body>
+</html>
