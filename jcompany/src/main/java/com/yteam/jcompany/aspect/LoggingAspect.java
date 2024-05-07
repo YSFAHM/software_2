@@ -11,7 +11,9 @@ import org.apache.commons.lang3.StringUtils;
 @Aspect
 @Component
 public class LoggingAspect {
+
     private final Logger log = LoggerFactory.getLogger(LoggingAspect.class);
+	
     @Around(value = "execution(* com.yteam.jcompany.controller..*..*(..))")
 	public Object logTime(ProceedingJoinPoint  joinPoint) throws Throwable {
 		

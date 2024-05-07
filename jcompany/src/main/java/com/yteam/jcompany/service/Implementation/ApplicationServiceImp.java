@@ -37,7 +37,7 @@ public class ApplicationServiceImp implements ApplicationService {
 
     @Override
     public ResponseDto deleteApplication(Long id) {
-        applicationRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("company does not exist"));
+        applicationRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("application does not exist"));
         applicationRepository.deleteById(id);
         return new ResponseDto("application deleted successfully");
     }

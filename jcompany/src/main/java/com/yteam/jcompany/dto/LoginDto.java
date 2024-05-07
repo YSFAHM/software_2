@@ -26,7 +26,6 @@ public class LoginDto {
         loginDto.setUserName(auth.getUserName());
         loginDto.setPassword(auth.getPassword());
         return loginDto;
-
     }
 
 }
